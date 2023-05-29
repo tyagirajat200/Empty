@@ -1,4 +1,3 @@
-import { describe, expect, test } from '@jest/globals';
 import sum from '../sum';
 import { sumt } from '../sumt';
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>User Login</title>
+
+    <style type="text/css">
+        a[href] {
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: help;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4">
+                <div style="max-width: 400px; margin: auto">
+                    <div class="row">
+                        <div class="col-12" id="message"></div>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control">
+                        </div>
+                        <input type="button" id="login-btn" class="btn btn-primary" value="Login" onclick="login()">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a href="http://www.testdome.com">Check documentation</a>
+    </div>
+    <script>
+
+        function removeProperty(obj, prop) {
+            console.log(obj)
+            const a = obj.hasOwnProperty(prop) ? true : false;
+            delete obj[prop];
+            return a;
+        }
+
+        function login() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            let messageContainer = document.getElementById('message');
+
+            const validPassword = 'rango';
+
+            if (password == validPassword) {
+                messageContainer.innerHTML = `
+            <div class="alert alert-success" role="alert">
+                <h3>Login Successful!</h3>
+                <p>Welcome back ${username}</p>
+            </div>
+            `;
+            } else {
+                messageContainer.innerHTML = `
+            <div class="alert alert-danger" role="alert">
+                <h3>Login Failed!</h3>
+                <p>Invalid username/password entered.</p>
+            </div>
+            `;
+            }
+        }
+    </script>
+</body>
+
+</html>
